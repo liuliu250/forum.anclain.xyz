@@ -1,0 +1,11 @@
+@media (max-width: 600px) {
+    body {
+        font-size: 14px;
+    }
+    header, footer {
+        padding: 0.5em 0;
+    }
+    main {
+        padding: 1em;
+    }
+}

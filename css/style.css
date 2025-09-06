@@ -1,0 +1,33 @@
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+}
+header, footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 1em 0;
+}
+main {
+    padding: 2em;
+}
+#forum {
+    max-width: 800px;
+    margin: 0 auto;
+}
+.post {
+    border-bottom: 1px solid #ddd;
+    padding: 1em 0;
+}
+.post h3 {
+    margin: 0;
+}
+.post a {
+    color: #333;
+    text-decoration: none;
+}
+.post a:hover {
+    text-decoration: underline;
+}
