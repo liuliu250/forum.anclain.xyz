@@ -24,7 +24,7 @@ async function fetchUser() {
     const userList = document.getElementById('userList')
     userList.innerHTML = data.users.map(item => `<div>${item}</div>`).join('')
 }
-fetchUser()
+await fetchUser()
 
 loginBtn.addEventListener('click', async () => {
     const body = getBody()
