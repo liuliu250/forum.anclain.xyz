@@ -25,7 +25,7 @@ const User = sequelize.define('User', {
     password: DataTypes.STRING
 })
 
-await User.sync()
+User.sync()
 
 app.use(async ctx => {
     if (ctx.url === '/login' && ctx.method === 'POST') {
