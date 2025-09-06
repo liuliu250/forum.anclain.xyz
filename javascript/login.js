@@ -8,9 +8,9 @@ function getBody(){
 function fetchData(url, body){
     return fetch(url, {
         method: "POST",
-        headers: new Headers({
+        headers: {
             'Content-Type': 'application/json; charset=UTF-8'
-        }),
+        },
         body: JSON.stringify(body)
     });
 }
@@ -22,7 +22,7 @@ loginBtn.addEventListener("click",  async () => {
 })
 registerBtn.addEventListener("click",  async () => {
     const body = getBody();
-    const response = fetchData("http://localhost:3000/registry", body);
+    const response = await fetchData("http://localhost:3000/registry", body);
     const data = await response.json();
 
 })
