@@ -24,14 +24,14 @@ async function fetchUser() {
     const userList = document.getElementById('userList')
     userList.innerHTML = data.users.map(item => `<div>${item}</div>`).join('')
 }
-await fetchUser()
+fetchUser()
 
 loginBtn.addEventListener('click', async () => {
     const body = getBody()
     const response = await fetchData('https://console.anclain.xyz/login', body)
     const data = await response.json()
-    const loginUsernName = document.getElementById('loginUsernName')
-    loginUsernName.innerText = data.username
+    const loginUserName = document.getElementById('loginUserName')
+    loginUserName.innerText = data.username
 })
 
 registryBtn.addEventListener('click', async () => {
