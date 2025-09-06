@@ -19,7 +19,7 @@ function fetchData(url, body) {
 }
 
 async function fetchUser() {
-    const response = await fetch('https://console.anclain.xyz:443/users')
+    const response = await fetch('https://console.anclain.xyz/users')
     const data = await response.json()
     const userList = document.getElementById('userList')
     userList.innerHTML = data.users.map(item => `<div>${item}</div>`).join('')
@@ -28,7 +28,7 @@ fetchUser()
 
 loginBtn.addEventListener('click', async () => {
     const body = getBody()
-    const response = await fetchData('https://[240e:399:f9e:5e30:17:3321:26ff:32a1]:443/login', body)
+    const response = await fetchData('https://console.anclain.xyz/login', body)
     const data = await response.json()
     const loginUsernName = document.getElementById('loginUsernName')
     loginUsernName.innerText = data.username
@@ -36,6 +36,6 @@ loginBtn.addEventListener('click', async () => {
 
 registryBtn.addEventListener('click', async () => {
     const body = getBody()
-    const response = await fetchData('https://[240e:399:f9e:5e30:17:3321:26ff:32a1]:443/registry', body)
+    const response = await fetchData('https://console.anclain.xyz/registry', body)
     const data = await response.json()
 })

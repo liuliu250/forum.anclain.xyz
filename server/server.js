@@ -48,6 +48,6 @@ app.use(async ctx => {
     }
 })
 
-app.listen(443, () => {
-    console.log('server start port 443')
+app.listen(80, () => {
+    console.log('server start port 80')
 })
