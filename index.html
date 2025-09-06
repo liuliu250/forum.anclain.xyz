@@ -73,7 +73,7 @@
 
   registryBtn.addEventListener('click', async () => {
     const body = getBody()
-    const response = fetchData('http://localhost:3000/registry', body)
+    const response = await fetchData('http://localhost:3000/registry', body)
     const data = await response.json()
   })
 </script>
