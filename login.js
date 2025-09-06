@@ -7,16 +7,16 @@ function getBody(){
 }
 function fetchData(url, body){
     return fetch(url, {
-        method: "POST",
+        method: 'POST',
         headers: {
-            'Content-Type': 'application/json; charset=UTF-8'
+            "Content-Type": 'application/json;charset=UTF-8'
         },
         body: JSON.stringify(body)
     });
 }
 loginBtn.addEventListener("click",  async () => {
     const body = getBody();
-    // console.log(body);
+    console.log(body);
     const response = await fetchData("http://localhost:3000/login", body);
     const data = await response.json();
 })

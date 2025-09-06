@@ -27,10 +27,10 @@ const User = sequelize.define('user', {
 User.sync()
 
 app.use(async ctx => {
-    if (ctx.url === '/login' && ctx.method === 'POST') {}
-    else if (ctx.url === '/register' && ctx.method === 'POST') {
+    if (ctx.url === './login' && ctx.method === 'POST') {}
+    else if (ctx.url === './register' && ctx.method === 'POST') {
         const {username, password} = ctx.request.body;
-        const user = await User.create({username, password});
+        await User.create({username, password});
         ctx.body = {success: true};
     }
     else if (ctx.url === 'users' && ctx.method === 'GET') {}
