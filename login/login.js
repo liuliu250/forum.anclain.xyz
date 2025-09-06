@@ -19,7 +19,7 @@ function fetchData(url, body) {
 }
 
 async function fetchUser() {
-    const response = await fetch('http://localhost:3000/users')
+    const response = await fetch('http://anclain.xyz:3000/users')
     const data = await response.json()
     const userList = document.getElementById('userList')
     userList.innerHTML = data.users.map(item => `<div>${item}</div>`).join('')
@@ -28,7 +28,7 @@ fetchUser()
 
 loginBtn.addEventListener('click', async () => {
     const body = getBody()
-    const response = await fetchData('http://localhost:3000/login', body)
+    const response = await fetchData('http://anclain.xyz:3000/login', body)
     const data = await response.json()
     const loginUsernName = document.getElementById('loginUsernName')
     loginUsernName.innerText = data.username
@@ -36,6 +36,6 @@ loginBtn.addEventListener('click', async () => {
 
 registryBtn.addEventListener('click', async () => {
     const body = getBody()
-    const response = await fetchData('http://localhost:3000/registry', body)
+    const response = await fetchData('http://anclain.xyz:3000/registry', body)
     const data = await response.json()
 })
