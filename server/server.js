@@ -8,7 +8,6 @@ app.use(bodyParser())
 app.use(async (ctx, next) => {
     ctx.set('Access-Control-Allow-Origin', '*');
     ctx.set('Access-Control-Allow-Headers', 'Content-Type')
-    ctx.set('Access-Control-Allow-Origin', 'Content-Type')
     if (ctx.method === 'OPTIONS') {
         ctx.body = 200
     } else {
@@ -49,6 +48,6 @@ app.use(async ctx => {
     }
 })
 
-app.listen(80, () => {
-    console.log('server start port 80')
+app.listen(3000, () => {
+    console.log('server start port 3000')
 })
