@@ -48,6 +48,6 @@ app.use(async ctx => {
     }
 })
 
-app.listen(80, () => {
-    console.log('server start port 80')
+app.listen(3000, () => {
+    console.log('server start port 3000')
 })
