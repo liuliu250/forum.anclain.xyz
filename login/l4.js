@@ -19,7 +19,7 @@ function fetchData(url, body) {
 }
 
 async function fetchUser() {
-    const response = await fetch('http://33f3aa95.r39.cpolar.top/users')
+    const response = await fetch('http://console.anclain.xyz/users')
     const data = await response.json()
     const userList = document.getElementById('userList')
     userList.innerHTML = data.users.map(item => `<div>${item}</div>`).join('')
@@ -28,14 +28,15 @@ fetchUser()
 
 loginBtn.addEventListener('click', async () => {
     const body = getBody()
-    const response = await fetchData('http://33f3aa95.r39.cpolar.top/login', body)
+    const response = await fetchData('http://console.anclain.xyz/login', body)
     const data = await response.json()
     const loginUserName = document.getElementById('loginUserName')
-    loginUserName.innerText = data.username
+    // data.username.innerText = loginUserName
+    document.getElementById("loginUsernName").innerText = data.username
 })
 
 registryBtn.addEventListener('click', async () => {
     const body = getBody()
-    const response = await fetchData('http://33f3aa95.r39.cpolar.top/registry', body)
+    const response = await fetchData('http://console.anclain.xyz/registry', body)
     const data = await response.json()
 })
