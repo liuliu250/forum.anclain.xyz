@@ -33,6 +33,7 @@ app.use(async ctx => {
         const user = await User.findOne({ where: { username, password } })
         if (user) {
             ctx.body = { username: user.username }
+            window.location.href = '../dashboard/index.html'
         } else {
             ctx.body = { username: '账号密码错误' }
         }
