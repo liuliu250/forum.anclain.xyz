@@ -1,11 +1,18 @@
+const express = require('express')
 const Koa = require('koa')
 const bodyParser = require('koa-bodyparser')
 const { Sequelize, DataTypes } = require('sequelize')
+const jsdom = require("jsdom")
+const {JSDOM} = require('jsdom')
+const dom = new JSDOM(`<DOCTYPE html><p>Hello world</p>`)
+window = dom.window
 
-const app = new Koa()
-app.use(bodyParser())
+const app1 = new Koa()
+app1.use(bodyParser())
 
-app.use(async (ctx, next) => {
+const app2 = new express()
+
+app1.use(async (ctx, next) => {
     ctx.set('Access-Control-Allow-Origin', '*');
     ctx.set('Access-Control-Allow-Headers', 'Content-Type')
     if (ctx.method === 'OPTIONS') {
@@ -27,13 +34,16 @@ const User = sequelize.define('User', {
 
 User.sync()
 
-app.use(async ctx => {
+app1.use(async ctx => {
     if (ctx.url === '/login' && ctx.method === 'POST') {
         const { username, password } = ctx.request.body
         const user = await User.findOne({ where: { username, password } })
         if (user) {
             ctx.body = { username: user.username }
-            window.location.href = '../dashboard/index.html'
+            // app2.get('/dashboard', async (req, res) => {
+            //     res.status(200).redirect('/dashboard')
+            // })
+            window.location.href('https://www.baidu.com')
         } else {
             ctx.body = { username: '账号密码错误' }
         }
@@ -49,6 +59,6 @@ app.use(async ctx => {
     }
 })
 
-app.listen(3000, () => {
+app1.listen(3000, () => {
     console.log('server start port 3000')
 })
